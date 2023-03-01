@@ -22,7 +22,6 @@ public class VendedorDAO {
         Object[] fila = new Object[5];
 
         for (Vendedor v : lista) {
-            System.out.println(v.getNombre());
             fila[0] = v.getCodigo();
             fila[1] = v.getNombre();
             fila[2] = v.getCaja();

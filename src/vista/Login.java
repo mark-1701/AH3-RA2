@@ -103,8 +103,6 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuario o Password incorrecto", "Alerta", JOptionPane.WARNING_MESSAGE);
             }   
         }
-        
-        System.out.println(l.serch(usuario, password));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
