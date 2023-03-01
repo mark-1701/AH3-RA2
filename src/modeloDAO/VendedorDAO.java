@@ -41,7 +41,7 @@ public class VendedorDAO {
     }
 
     //NO LLEVA CARGAR
-    public Vendedor list(int codigo) {
+    public Vendedor serch(int codigo) {
         int i = 0;
         Vendedor vendedor = null;
         for (Vendedor v : lista) {
@@ -52,7 +52,6 @@ public class VendedorDAO {
             i++;
         }
         return vendedor;
-
     }
 
     public void editar(Vendedor vendedor) {

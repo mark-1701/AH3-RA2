@@ -1,19 +1,20 @@
 package vista;
 
 import javax.swing.JOptionPane;
+import modelo.LoginAccess;
 
 public class Login extends javax.swing.JFrame {
 
     String usuario;
     String password;
-    
+    LoginAccess l = new LoginAccess();
+
     public Login() {
         initComponents();
         setResizable(false);
         setTitle("Acceso al sistema");
         setLocationRelativeTo(null);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -96,12 +97,16 @@ public class Login extends javax.swing.JFrame {
         if (usuario.equals("") && password.equals("")) {
             new Administrador().setVisible(true);
             this.setVisible(false);
-            
-        } else if (usuario.equals("vendedor") && password.equals("vendedor")) {
-            //nada
         } else {
-            JOptionPane.showMessageDialog(null, "Usuario o Password incorrecto", "Alerta", JOptionPane.WARNING_MESSAGE);
+            if (l.serch(usuario, password)) {
+                new Vendedores().setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o Password incorrecto", "Alerta", JOptionPane.WARNING_MESSAGE);
+            }   
         }
+        
+        System.out.println(l.serch(usuario, password));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -197,17 +197,27 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         fila = jTableVendedores.getSelectedRow();
-        int codigo = Integer.parseInt(jTableVendedores.getValueAt(fila, 0).toString());
-        dao.delete(codigo);
-        this.dispose();
-        new Administrador().setVisible(true);
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Elige una opcion para eliminar", "Alerta", JOptionPane.WARNING_MESSAGE);
+
+        } else {
+            int codigo = Integer.parseInt(jTableVendedores.getValueAt(fila, 0).toString());
+            dao.delete(codigo);
+            this.dispose();
+            new Administrador().setVisible(true);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         fila = jTableVendedores.getSelectedRow();
-        int codigo = Integer.parseInt(jTableVendedores.getValueAt(fila, 0).toString());
-        this.dispose();
-        new ActualizarVendedor(dao.list(codigo)).setVisible(true);
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Elige una opcion para actualizar", "Alerta", JOptionPane.WARNING_MESSAGE);
+        } else {
+            int codigo = Integer.parseInt(jTableVendedores.getValueAt(fila, 0).toString());
+            this.dispose();
+            new ActualizarVendedor(dao.serch(codigo)).setVisible(true);
+        }
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

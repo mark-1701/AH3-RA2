@@ -39,13 +39,9 @@ public class ActualizarVendedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtVentas = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtGenero = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        btnCrear = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -53,30 +49,21 @@ public class ActualizarVendedor extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtCaja = new javax.swing.JTextField();
+        txtVentas = new javax.swing.JTextField();
+        txtGenero = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        btnCrear = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        txtVentas.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jLabel1.setText("Actualizar Vendedor");
 
-        txtGenero.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel2.setText("Codigo");
 
-        btnCrear.setText("Actualizar");
-        btnCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel3.setText("Nombre");
-
-        txtPassword.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel4.setText("Caja");
@@ -90,11 +77,25 @@ public class ActualizarVendedor extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         jLabel7.setText("Password");
 
+        txtCodigo.setEditable(false);
         txtCodigo.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
 
         txtNombre.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
 
         txtCaja.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+
+        txtVentas.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+
+        txtGenero.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+
+        txtPassword.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+
+        btnCrear.setText("Actualizar");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
