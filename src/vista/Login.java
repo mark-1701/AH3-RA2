@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         usuario = txtUser.getText();
         password = txtPass.getText();
-        if (usuario.equals("") && password.equals("")) {
+        if (usuario.equals("admin") && password.equals("admin")) {
             new Administrador().setVisible(true);
             this.setVisible(false);
         } else {
