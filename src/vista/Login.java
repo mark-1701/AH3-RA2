@@ -92,19 +92,24 @@ public class Login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         /*Para ingresar al sistema ventas, debera de entrar con un nombre 
         y contrasena ya registrado*/
-        
+
         usuario = txtUser.getText();
         password = txtPass.getText();
-        if (usuario.equals("admin") && password.equals("admin")) {
-            new Administrador().setVisible(true);
-            this.setVisible(false);
+
+        if (usuario.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No debes de dejar casillas vacias", "Alerta", JOptionPane.WARNING_MESSAGE);
         } else {
-            if (l.serch(usuario, password)) {
-                new Vendedores().setVisible(true);
+            if (usuario.equals("admin") && password.equals("admin")) {
+                new Administrador().setVisible(true);
                 this.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(null, "Usuario o Password incorrecto", "Alerta", JOptionPane.WARNING_MESSAGE);
-            }   
+                if (l.serch(usuario, password)) {
+                    new Vendedores().setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario o Password incorrecto", "Alerta", JOptionPane.WARNING_MESSAGE);
+                }
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -151,7 +151,6 @@ public class AgregarVendedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-
         try {
             int codigo = Integer.parseInt(txtCodigo.getText());
             String nombre = txtNombre.getText();
@@ -165,10 +164,9 @@ public class AgregarVendedor extends javax.swing.JFrame {
             new Administrador().setVisible(true);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al agregar usuario", "Alerta", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al llenar formulario", "Alerta", JOptionPane.WARNING_MESSAGE);
             System.out.println("ERROR" + e);
         }
-
     }//GEN-LAST:event_btnCrearActionPerformed
 
     /**

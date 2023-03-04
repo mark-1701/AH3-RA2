@@ -158,7 +158,6 @@ public class ActualizarVendedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-
         try {
             int codigo = Integer.parseInt(txtCodigo.getText());
             String nombre = txtNombre.getText();
@@ -166,13 +165,12 @@ public class ActualizarVendedor extends javax.swing.JFrame {
             int ventas = Integer.parseInt(txtVentas.getText());
             String genero = txtGenero.getText();
             String password = txtPassword.getText();
-            Vendedor vendedor = new Vendedor(codigo, nombre, caja, ventas, genero, password, true);
+            Vendedor vendedor = new Vendedor(codigo, nombre, caja, ventas, genero, password, true);            
             dao.editar(vendedor);
             this.dispose();
             new Administrador().setVisible(true);
-
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al actualizar", "Alerta", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al llenar formulario", "Alerta", JOptionPane.WARNING_MESSAGE);
             System.out.println("ERROR" + e);
         }
     }//GEN-LAST:event_btnCrearActionPerformed

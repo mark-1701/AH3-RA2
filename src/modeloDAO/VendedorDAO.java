@@ -2,6 +2,7 @@ package modeloDAO;
 
 import java.io.*;
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Vendedor;
 
@@ -12,7 +13,6 @@ public class VendedorDAO {
     public DefaultTableModel listar() {
         cargar();
         DefaultTableModel model = new DefaultTableModel();
-
         model.addColumn("Codigo");
         model.addColumn("Nombre");
         model.addColumn("Caja");
@@ -21,13 +21,18 @@ public class VendedorDAO {
 
         Object[] fila = new Object[5];
 
-        for (Vendedor v : lista) {
-            fila[0] = v.getCodigo();
-            fila[1] = v.getNombre();
-            fila[2] = v.getCaja();
-            fila[3] = v.getVentas();
-            fila[4] = v.getGenero();
-            model.addRow(fila);
+        try {
+            for (Vendedor v : lista) {
+                fila[0] = v.getCodigo();
+                fila[1] = v.getNombre();
+                fila[2] = v.getCaja();
+                fila[3] = v.getVentas();
+                fila[4] = v.getGenero();
+                model.addRow(fila);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al rellenar tabla", "Alerta", JOptionPane.WARNING_MESSAGE);
+            System.out.println("ERROR" + e);
         }
 
         return model;
@@ -35,7 +40,12 @@ public class VendedorDAO {
 
     public void add(Vendedor vendedor) {
         cargar();
-        lista.add(vendedor);
+        try {
+            lista.add(vendedor);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al agregar vendedor", "Alerta", JOptionPane.WARNING_MESSAGE);
+            System.out.println("ERROR" + e);
+        }
         guardar();
     }
 
@@ -43,13 +53,19 @@ public class VendedorDAO {
     public Vendedor serch(int codigo) {
         int i = 0;
         Vendedor vendedor = null;
-        for (Vendedor v : lista) {
-            if (v.getCodigo() == codigo) {
-                vendedor = v;
-                break;
+        try {
+            for (Vendedor v : lista) {
+                if (v.getCodigo() == codigo) {
+                    vendedor = v;
+                    break;
+                }
+                i++;
             }
-            i++;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al encontrar vendedor", "Alerta", JOptionPane.WARNING_MESSAGE);
+            System.out.println("ERROR" + e);
         }
+
         return vendedor;
     }
 
@@ -57,26 +73,38 @@ public class VendedorDAO {
         cargar();
         int codigo = vendedor.getCodigo();
         int i = 0;
-        for (Vendedor v : lista) {
-            if (v.getCodigo() == codigo) {
-                break;
+        try {
+            for (Vendedor v : lista) {
+                if (v.getCodigo() == codigo) {
+                    break;
+                }
+                i++;
             }
-            i++;
+            lista.set(i, vendedor);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al editar vendedor", "Alerta", JOptionPane.WARNING_MESSAGE);
+            System.out.println("ERROR" + e);
         }
-        lista.set(i, vendedor);
-        guardar();  
+
+        guardar();
     }
 
     //NO LLEVA CARGAR
     public void delete(int codigo) {
         int i = 0;
-        for (Vendedor v : lista) {
-            if (v.getCodigo() == codigo) {
-                break;
+        try {
+            for (Vendedor v : lista) {
+                if (v.getCodigo() == codigo) {
+                    break;
+                }
+                i++;
             }
-            i++;
+            lista.remove(i);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar vendedor", "Alerta", JOptionPane.WARNING_MESSAGE);
+            System.out.println("ERROR" + e);
         }
-        lista.remove(i);
+
         guardar();
     }
 

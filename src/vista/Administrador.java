@@ -197,7 +197,7 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         fila = jTableVendedores.getSelectedRow();
-        if (fila == -1) {
+        if (jTableVendedores.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Elige una opcion para eliminar", "Alerta", JOptionPane.WARNING_MESSAGE);
 
         } else {
@@ -210,7 +210,7 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         fila = jTableVendedores.getSelectedRow();
-        if (fila == -1) {
+        if (jTableVendedores.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Elige una opcion para actualizar", "Alerta", JOptionPane.WARNING_MESSAGE);
         } else {
             int codigo = Integer.parseInt(jTableVendedores.getValueAt(fila, 0).toString());
